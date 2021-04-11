@@ -1,6 +1,6 @@
 import React, { Component} from 'react'
 import axios from "axios";
-//import items from './data'
+import { toast } from 'react-toastify';
 
 const api = "https://6071b51f50aaea0017284f87.mockapi.io/hotels/hotel";
 const RoomContext  = React.createContext();
@@ -31,7 +31,6 @@ const RoomContext  = React.createContext();
     }
 
     formatData(items){
-        console.log(process.env.PUBLIC_URL)
         let tempItems = items.map(item => {
             let id = item.sys.id
             let images = item.fields.images.map(image => image.fields.file.url)
@@ -52,13 +51,53 @@ const RoomContext  = React.createContext();
         this.setState({...this.state, booked});
       }
 
+      setUpdateReservation = (guiId, price, nights) => {
+       
+        this.state.booked.find(o=> o.guiId === guiId).price= price;
+        this.state.booked.find(o=> o.guiId === guiId).nights = nights;
+        this.setState({...this.state});
+      }
+
+
+      deleteReservation = (guiId) =>{
+        this.setState({...this.state, booked: this.state.booked.filter((item) => item.guiId !== guiId)});
+      }
+
+      errorMessage =(message) =>{
+        toast.error(message, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+        }
+
+        infoMessage = (message) =>{
+            toast.info(message, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+        }
+
     render() {
         
         return (
             <RoomContext.Provider value ={{
                 ...this.state,
                 getRoom: this.getRoom,
-                setBooking: this.setBooking
+                setBooking: this.setBooking,
+                errorMessage: this.errorMessage,
+                infoMessage: this.infoMessage,
+                setUpdateReservation: this.setUpdateReservation,
+                deleteReservation: this.deleteReservation
                 }}>
                {this.props.children} 
             </RoomContext.Provider >

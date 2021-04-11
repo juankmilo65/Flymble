@@ -5,6 +5,7 @@ import {BrowserRouter as Router} from 'react-router-dom'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { RoomProvider} from './contex'
+import { ToastContainer } from 'react-toastify';
 
 ReactDOM.render(
 <React.StrictMode>
@@ -13,6 +14,17 @@ ReactDOM.render(
       <App />
     </Router>
   </RoomProvider>
+  <ToastContainer
+          position="top-center"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          />
 </React.StrictMode>,
   document.getElementById('root')
 );

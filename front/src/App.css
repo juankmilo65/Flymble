@@ -79,13 +79,51 @@ h6 {
   text-transform: uppercase;
   margin: 2rem 0;
 }
-.empty-search {
-  text-align: center;
-  text-transform: capitalize;
-  margin: 2rem 0;
-  padding: 1rem;
-  letter-spacing: var(--mainSpacing);
+
+.container {
+  display: flex;
+  width: 266px;
+  height: 197px;
+  flex-wrap: wrap;
+  align-content: flex-end;
 }
+
+.info-left {
+  margin-left: 100%;
+}
+
+.checkout-content {
+  text-align: justify;
+  text-transform: capitalize;
+  padding: 5rem 0 0 0rem;
+}
+
+.checkout-content-padding {
+  padding: 5rem 0 0 13rem;
+}
+
+.img-container-checkout {
+  position: relative;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 7.7fr 25.5fr 2.1fr;
+  margin: 2rem auto;
+  grid-column-gap: 1rem;
+}
+.img-container-checkout img {
+  width: 60%;
+  display: block;
+  transition: var(--mainTransition);
+}
+
+.checkout-room {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 10.7fr 0.5fr 9.1fr 9.1fr;
+  margin: 2rem auto;
+  grid-column-gap: 1rem;
+}
+
 /* end of globals */
 /* Navbar */
 .navbar {
@@ -396,7 +434,15 @@ h6 {
 .booking-room {
   width: 80vw;
   display: grid;
-  grid-template-columns: 10.7fr 0.5fr 9.1fr;
+  grid-template-columns: 0fr 0.3fr 0fr;
+  margin: 2rem auto;
+  grid-column-gap: 1rem;
+}
+
+.checkout-room {
+  width: 80vw;
+  display: grid;
+  grid-template-columns: 10.7fr 0.5fr 9.1fr 9.1fr;
   margin: 2rem auto;
   grid-column-gap: 1rem;
 }
@@ -460,7 +506,7 @@ h6 {
     width: 95vw;
     max-width: 30vw;
     display: grid;
-    grid-template-columns: 2.1fr 0fr 2.1fr;
+    grid-template-columns: 0fr 0.3fr 0fr;
     grid-column-gap: 2rem;
   }
 
@@ -473,6 +519,11 @@ h6 {
     border-radius: 10px;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
+  }
+
+  .checkout-total {
+    direction: rtl;
+    margin-right: 139px;
   }
 }
 /* end of single room*/
@@ -501,55 +552,3 @@ h6 {
   }
 }
 /* end of roomlist */
-/*  rooms fitler*/
-.filter-container {
-  padding: 5rem 0;
-}
-.filter-form {
-  width: 60vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(202px, 1fr));
-  grid-row-gap: 2rem;
-  grid-column-gap: 40px;
-}
-.form-group {
-  text-transform: capitalize;
-}
-.form-group label {
-  display: block;
-  letter-spacing: var(--mainSpacing);
-  margin-bottom: 0.5rem;
-}
-.form-control {
-  width: 100%;
-  background: transparent;
-  font-size: 1rem;
-}
-.size-inputs {
-  display: flex;
-}
-.size-input {
-  width: 40%;
-  padding: 0.2rem;
-  border: 1px solid var(--mainBlack);
-  border-radius: 0.3rem;
-  margin-right: 0.3rem;
-}
-.single-extra label {
-  display: inline-block;
-  font-size: 0.8rem;
-  margin-left: 0.5rem;
-}
-@media screen and (min-width: 776px) {
-  .filter-form {
-    width: 70vw;
-  }
-}
-@media screen and (min-width: 992px) {
-  .filter-form {
-    width: 95vw;
-    max-width: 1170px;
-  }
-}
-/* end of rooms fitler*/
