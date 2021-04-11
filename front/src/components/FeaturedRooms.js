@@ -1,23 +1,30 @@
-import React, { Component } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Title from "./Title";
 import { RoomContext } from "../contex";
 import Room from "./Room";
-export default class FeaturedRooms extends Component {
-  static contextType = RoomContext;
+import SkeletonRoom from "./SkeletonRoom"
 
-  render() {
-    let { featuredRooms: rooms } = this.context;
+export default function FeaturedRooms()  {
+  const context = useContext(RoomContext);
+  const [loading, setLoading] = useState(true);
+  let { featuredRooms: rooms } = context;
+  
+useEffect(() => {
+  setTimeout(()=>{
+    setLoading(false)
+  },1000)
+}, [])
 
-    rooms = rooms.map(room => {
-      return <Room key={room.id} room={room} />;
-    });
-    return (
-      <section className="featured-rooms">
-        <Title title="featured rooms" />
-        <div className="featured-rooms-center">
-          {rooms}
-        </div>
+  rooms = rooms.map(room => {
+    return  loading? <SkeletonRoom/> : <Room key={room.id} room={room} />;
+  });
+  
+  return (
+  <section className="featured-rooms">
+    <Title title="featured rooms" />
+    <div className="featured-rooms-center">
+      {rooms} 
+      </div>
       </section>
-    );
-  }
+      );
 }

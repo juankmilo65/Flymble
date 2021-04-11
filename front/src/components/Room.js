@@ -1,8 +1,8 @@
-import React from "react";
+import React, { memo }  from "react";
 import { Link } from "react-router-dom";
 import defaultImg from "../images/room-1.jpeg";
 import PropTypes from "prop-types";
-import { memo } from "react";
+
 const Room = memo(({ room }) => {
   const { name, slug, images, price } = room;
   return (
@@ -30,4 +30,5 @@ Room.propTypes = {
     price: PropTypes.number.isRequired
   })
 };
+
 export default Room;

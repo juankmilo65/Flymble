@@ -82,11 +82,7 @@ h6 {
   background: transparent;
   color: var(--primaryColor);
 }
-.loading {
-  text-transform: capitalize;
-  text-align: center;
-  margin-top: 3rem;
-}
+
 .error {
   text-align: center;
   text-transform: uppercase;
@@ -113,6 +109,20 @@ h6 {
 
 .checkout-content-padding {
   padding: 5rem 0 0 13rem;
+}
+
+.payment-form {
+  text-align: center;
+  padding: 5rem 0 0 0rem;
+}
+
+.payment-file {
+  display: grid;
+  grid-template-columns: 1.1fr 2.1fr;
+  margin: 1rem auto;
+  grid-row-gap: 1rem;
+  grid-column-gap: 26px;
+  width: fit-content;
 }
 
 .img-container-checkout {
@@ -183,9 +193,6 @@ h6 {
   font-size: 1rem;
   font-weight: 600;
   letter-spacing: var(--mainSpacing);
-}
-.nav-links a:hover {
-  color: var(--primaryColor);
 }
 
 .show-nav {
@@ -287,51 +294,6 @@ h6 {
   margin: 0 auto;
   background: var(--primaryColor);
 }
-/* end of Title */
-
-/* services */
-.services {
-  padding: 5rem 0;
-}
-.services {
-  background: var(--darkGrey);
-  text-align: center;
-}
-.services-center {
-  width: 90vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
-  grid-row-gap: 2rem;
-  grid-column-gap: 50px;
-}
-.service span {
-  display: inline-block;
-  color: var(--primaryColor);
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-}
-.services h6 {
-  letter-spacing: var(--mainSpacing);
-}
-.services p {
-  width: 80%;
-  margin: 0 auto;
-}
-@media screen and (min-width: 992px) {
-  .services-center {
-    width: 95vw;
-    max-width: 1170px;
-  }
-}
-
-@media screen and (min-width: 1200px) {
-  .services p {
-    width: 100%;
-  }
-}
-/*end of services */
-/* featured rooms */
 
 .featured-rooms {
   padding: 5rem 0;
@@ -485,25 +447,9 @@ h6 {
   font-weight: 300;
 }
 
-.room-extras {
-  width: 80vw;
-  margin: 0 auto 3rem auto;
-}
-.room-extras h6 {
-  text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
-}
-.extras {
-  list-style-type: none;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
-  grid-column-gap: 2rem;
-  grid-row-gap: 1rem;
-}
 @media screen and (min-width: 992px) {
   .single-room-images,
-  .single-room-info,
-  .room-extras {
+  .single-room-info {
     width: 95vw;
     max-width: 1170px;
   }
@@ -548,29 +494,3 @@ h6 {
     opacity: 0.4;
   }
 }
-/* end of single room*/
-/* roomlist */
-.roomslist {
-  padding: 5rem 0;
-}
-.roomslist-center {
-  width: 80vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  grid-row-gap: 2rem;
-  grid-column-gap: 30px;
-}
-
-@media screen and (min-width: 776px) {
-  .roomslist-center {
-    width: 90vw;
-  }
-}
-@media screen and (min-width: 992px) {
-  .roomslist-center {
-    width: 95vw;
-    max-width: 1170px;
-  }
-}
-/* end of roomlist */

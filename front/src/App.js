@@ -5,7 +5,8 @@ import SingleRoom from "./pages/SingleRoom";
 import Error from "./pages/Error";
 import { Route, Switch } from 'react-router';
 import Navbar from "./components/Navbar"
-import Checkout from './pages/Checkout'
+import Checkout from './pages/Checkout';
+import Payment from './pages/Payment'
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       <Route exact path="/rooms" component={Room} ></Route> 
       <Route exact path="/rooms/:slug" component={SingleRoom} ></Route> 
       <Route exact path="/checkout" component={Checkout} ></Route> 
+      <Route exact path="/payment" component={Payment} ></Route> 
       <Route component={Error} ></Route>
     </Switch>
     </>
