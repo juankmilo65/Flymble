@@ -35,8 +35,8 @@ export default class Navbar extends Component {
                 </div>
                 <div className="nav-reservations"> 
                 Total Reservations: {booked.length}
-                <div>
-                <Link to="/checkout" className="btn-primary ">
+                <div >
+                <Link to="/checkout" className={`btn-primary  ${booked.length=== 0  ? "disabledbutton" : ""}` } >
                     checkout
                 </Link>
                 </div>

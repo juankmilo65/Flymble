@@ -15,6 +15,19 @@
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
 }
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
 /* globals */
 body {
   padding-top: 66px;
@@ -524,6 +537,15 @@ h6 {
   .checkout-total {
     direction: rtl;
     margin-right: 139px;
+  }
+
+  .noReservations {
+    text-align: center;
+  }
+
+  .disabledbutton {
+    pointer-events: none;
+    opacity: 0.4;
   }
 }
 /* end of single room*/

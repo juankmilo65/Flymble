@@ -9,9 +9,9 @@ export default function RoomCheckout({booking}) {
     const {room, nights, price, guiId} = booking;
     const [nightsCheckout, setNightsCheckout] = useState(nights);
     const [priceCheckout, setPriceCheckout] = useState(price);
+    const {setUpdateReservation}= contex;
     
     const increment=( price) =>{
-        const {setUpdateReservation}= contex;
         setPriceCheckout(price * (nightsCheckout +1));
         setNightsCheckout(nightsCheckout +1);
         setUpdateReservation(guiId, price* (nightsCheckout +1), nightsCheckout + 1);
@@ -19,19 +19,32 @@ export default function RoomCheckout({booking}) {
     
     const decrement=(price, guiId)=>{
         if(nightsCheckout > 1){
-            const {setUpdateReservation}= contex;
             setPriceCheckout(price* (nightsCheckout -1));
             setNightsCheckout(nightsCheckout - 1);
             setUpdateReservation(guiId, price* (nightsCheckout -1), nightsCheckout - 1);
         }else
         {
             contex.errorMessage('You can not set 0 for this option, please delete the reservation if you do not want to book this hotel!')
-    }
+        }
   }
   
   const removeReservation=(guid)=>{
     const {deleteReservation} = contex;
     deleteReservation(guid);
+}
+const onTodoChange =( nightsCheckout, guiId, price)=>{
+    if(parseInt(nightsCheckout) >1){
+        setPriceCheckout(price* parseInt(nightsCheckout));
+        setNightsCheckout(parseInt(nightsCheckout));
+        setUpdateReservation(guiId, price* parseInt(nightsCheckout), parseInt(nightsCheckout));
+    }else
+    {
+        contex.errorMessage('You can not set 0 or Empty for this option, please delete the reservation if you do not want to book this hotel, value by default is 1');
+        setPriceCheckout(price);
+        setNightsCheckout(1);
+        setUpdateReservation(guiId, price, 1);
+    }
+
 }
 
     return (
@@ -51,7 +64,7 @@ export default function RoomCheckout({booking}) {
             <button type="button" className="booking-btn" onClick={()=>decrement(room.price, guiId)}>
                 <ImMinus/>
             </button>
-            <h6>Nights: {nightsCheckout}</h6> 
+            <input type="number" value={nightsCheckout} onChange={e => onTodoChange(e.target.value, guiId, room.price)}/> 
             <button type="button" className="booking-btn" onClick={()=>increment(room.price, guiId)}>
                 <ImPlus/>
             </button>

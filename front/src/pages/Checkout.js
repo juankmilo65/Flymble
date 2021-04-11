@@ -23,13 +23,20 @@ export default function Checkout() {
     return (
         <div className="checkout-content">
             <Title title="Checkout"/>
+            {contex.booked.length > 0?
+            <div>
             {contex.booked && contex.booked.map(booking =>{ return <RoomCheckout booking={booking} />})}
             <div className="checkout-total">
             <h6>Total: ${total}</h6>
-            <Link to="/payment" className="btn-primary ">
-                    buy
-            </Link>
+            <Link to="/payment" className="btn-primary ">buy</Link>
             </div>
+            </div>:
+            <div className='noReservations'>
+            No reservations were found
+            </div>
+        }
+            
+            
         </div>
     )
 }

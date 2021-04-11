@@ -16,8 +16,13 @@ const RoomContext  = React.createContext();
     }
 
     async getData() {
-        const response = await axios.get(api);
-        return response.data;
+      return  await axios.get(api)
+        .then(response =>{
+            return response.data;
+        })
+        .catch(err => {
+            throw  err
+        });
       };
 
     componentDidMount(){
@@ -26,8 +31,15 @@ const RoomContext  = React.createContext();
                 let featuredRooms = rooms.filter(room => room.featured === true );
                 this.setState({
                     rooms, featuredRooms, loading: false
-                })
-        })
+                }) 
+        }).catch(err=>
+            {
+                let message = err.response.status === 404 ?
+                "Error Api conection": 
+                "default error message"
+                this.errorMessage(message);
+            }
+        )
     }
 
     formatData(items){

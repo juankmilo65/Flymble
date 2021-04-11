@@ -6,7 +6,7 @@ import FeaturedRooms from '../components/FeaturedRooms'
   const Home = () => {
     return <>
     <Hero>
-        <Banner title="Hotel Rooms" subtitle="Rooms at $10">
+        <Banner title="Hotel Rooms" subtitle="Rooms at $400">
         </Banner>
         </Hero>
         <FeaturedRooms/>
