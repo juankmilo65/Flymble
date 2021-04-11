@@ -33,10 +33,16 @@ export default function RoomCheckout({booking}) {
     deleteReservation(guid);
 }
 const onTodoChange =( nightsCheckout, guiId, price)=>{
-    if(parseInt(nightsCheckout) >1){
-        setPriceCheckout(price* parseInt(nightsCheckout));
-        setNightsCheckout(parseInt(nightsCheckout));
-        setUpdateReservation(guiId, price* parseInt(nightsCheckout), parseInt(nightsCheckout));
+    
+    const nights = parseInt(nightsCheckout)
+    
+    if(nights > 100)
+    {
+        contex.errorMessage('Dear customer, the maximum number of nights is 100.');
+    }else if( nights>1){
+        setPriceCheckout(price* nights);
+        setNightsCheckout(nights);
+        setUpdateReservation(guiId, price* nights, nights);
     }else
     {
         contex.errorMessage('You can not set 0 or Empty for this option, please delete the reservation if you do not want to book this hotel, value by default is 1');
